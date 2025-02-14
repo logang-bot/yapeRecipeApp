@@ -21,7 +21,7 @@ import com.restrusher.amazingrecipeapp.ui.views.RecipeListScreen
 import com.restrusher.amazingrecipeapp.ui.views.RecipeLocationScreen
 
 @Composable
-fun HomeNavigation(
+fun AppNavigation(
     navController: NavHostController = rememberNavController()
 ) {
     val backStackEntry by navController.currentBackStackEntryAsState()

@@ -19,5 +19,5 @@ object RecipeDummyData {
         longitude = "22",
         imageUrl = "https://picsum.photos/200/300"
     )
-    val DummyRecipeList: List<Recipe> = listOf(DummyRecipe)
+    val DummyRecipeList: List<Recipe> = listOf(DummyRecipe, DummyRecipe, DummyRecipe)
 }
