@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">AmazingRecipeApp</string>
     <string name="back_button">Go Back</string>
+    <string name="search">Search</string>
 </resources>

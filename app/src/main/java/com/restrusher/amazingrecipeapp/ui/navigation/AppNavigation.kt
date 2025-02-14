@@ -9,12 +9,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
+import com.restrusher.amazingrecipeapp.R
 import com.restrusher.amazingrecipeapp.ui.common.AppBar
 import com.restrusher.amazingrecipeapp.ui.views.RecipeDetailsScreen
 import com.restrusher.amazingrecipeapp.ui.views.RecipeListScreen
@@ -44,6 +46,7 @@ fun AppNavigation(
             modifier = Modifier.padding(innerPadding),
         ) {
             composable<RecipeListScreenRoute> {
+                appBarTitle = stringResource(id = R.string.app_name)
                 RecipeListScreen(
                     onRecipeSelected = { id ->
                         navController.navigate(RecipeDetailsScreenRoute(recipeId = id))
@@ -54,14 +57,14 @@ fun AppNavigation(
             composable<RecipeDetailsScreenRoute> {
                 val args = it.toRoute<RecipeDetailsScreenRoute>()
                 RecipeDetailsScreen(
+                    recipeId = args.recipeId,
                     onLocationButtonSelected = { lat, long ->
                         navController.navigate(RecipeLocationScreenRoute(lat, long))
                     },
                     modifier = Modifier.fillMaxSize()
                 )
             }
-            composable<RecipeLocationScreenRoute>(
-            ) {
+            composable<RecipeLocationScreenRoute> {
                 val args = it.toRoute<RecipeLocationScreenRoute>()
                 RecipeLocationScreen(
                     modifier = Modifier.fillMaxSize()

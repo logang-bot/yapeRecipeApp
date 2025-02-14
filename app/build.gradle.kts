@@ -72,6 +72,12 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
 
+    // Coil
     implementation(libs.coil.compose)
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
 
 }

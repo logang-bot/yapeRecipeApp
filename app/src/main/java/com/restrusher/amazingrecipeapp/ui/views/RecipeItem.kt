@@ -37,7 +37,7 @@ fun RecipeItem(
     Box(modifier = modifier.fillMaxWidth()) {
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
-                .data(recipe.imageUrl)
+                .data(recipe.image)
                 .crossfade(true)
                 .build(),
             placeholder = painterResource(id = R.drawable.ic_launcher_foreground),
@@ -60,11 +60,11 @@ fun RecipeItem(
             Text(
                 modifier = Modifier.fillMaxWidth(),
                 text = recipe.name,
-                style = MaterialTheme.typography.titleMedium,
+                style = MaterialTheme.typography.titleLarge,
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
                 color = colorResource(id = R.color.white),
-                textAlign = TextAlign.Center
+                textAlign = TextAlign.Start
             )
         }
     }
