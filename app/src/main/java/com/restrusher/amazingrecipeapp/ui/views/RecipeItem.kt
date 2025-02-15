@@ -3,6 +3,7 @@ package com.restrusher.amazingrecipeapp.ui.views
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -43,7 +44,9 @@ fun RecipeItem(
             placeholder = painterResource(id = R.drawable.ic_launcher_foreground),
             contentDescription = null,
             contentScale = ContentScale.Crop,
-            modifier = Modifier.aspectRatio(1.8f).fillMaxWidth())
+            modifier = Modifier
+                .aspectRatio(1.8f)
+                .fillMaxWidth())
         Box(modifier = Modifier
             .fillMaxWidth()
             .align(Alignment.BottomStart)
@@ -55,17 +58,28 @@ fun RecipeItem(
                     )
                 )
             )
-            .padding(top = 20.dp, start = 6.dp, end = 6.dp, bottom = 5.dp)
+            .padding(top = 60.dp, start = 6.dp, end = 6.dp, bottom = 5.dp)
         ) {
-            Text(
-                modifier = Modifier.fillMaxWidth(),
-                text = recipe.name,
-                style = MaterialTheme.typography.titleLarge,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-                color = colorResource(id = R.color.white),
-                textAlign = TextAlign.Start
-            )
+            Column(modifier = Modifier.fillMaxWidth()) {
+                Text(
+                    modifier = Modifier.fillMaxWidth(),
+                    text = recipe.name,
+                    style = MaterialTheme.typography.titleLarge,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    color = colorResource(id = R.color.white),
+                    textAlign = TextAlign.Start
+                )
+                Text(
+                    modifier = Modifier.fillMaxWidth(),
+                    text = recipe.ingredients.joinToString(", "),
+                    style = MaterialTheme.typography.bodyMedium,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    color = colorResource(id = R.color.white),
+                    textAlign = TextAlign.Start
+                )
+            }
         }
     }
 }

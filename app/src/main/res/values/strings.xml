@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">AmazingRecipeApp</string>
     <string name="back_button">Go Back</string>
-    <string name="search">Search</string>
+    <string name="search_by_name_or_ingredient">Search by name or ingredient</string>
+    <string name="instructions">Instructions</string>
+    <string name="go_to_map">Go to map</string>
+    <string name="something_went_wrong">Something went wrong</string>
 </resources>

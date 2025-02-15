@@ -7,11 +7,12 @@ data object RecipeListScreenRoute
 
 @Serializable
 data class RecipeDetailsScreenRoute(
-    val recipeId: String,
+    val recipeId: Int,
+    val recipeName: String
 )
 
 @Serializable
 data class RecipeLocationScreenRoute(
-    val lat: String,
-    val long: String
+    val lat: Float,
+    val long: Float
 )

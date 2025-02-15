@@ -48,18 +48,19 @@ fun AppNavigation(
             composable<RecipeListScreenRoute> {
                 appBarTitle = stringResource(id = R.string.app_name)
                 RecipeListScreen(
-                    onRecipeSelected = { id ->
-                        navController.navigate(RecipeDetailsScreenRoute(recipeId = id))
+                    onRecipeSelected = { id, name ->
+                        navController.navigate(RecipeDetailsScreenRoute(recipeId = id, recipeName = name))
                     },
                     modifier = Modifier.fillMaxSize()
                 )
             }
             composable<RecipeDetailsScreenRoute> {
                 val args = it.toRoute<RecipeDetailsScreenRoute>()
+                appBarTitle = args.recipeName
                 RecipeDetailsScreen(
                     recipeId = args.recipeId,
                     onLocationButtonSelected = { lat, long ->
-                        navController.navigate(RecipeLocationScreenRoute(lat, long))
+                        navController.navigate(RecipeLocationScreenRoute(lat.toFloat(), long.toFloat()))
                     },
                     modifier = Modifier.fillMaxSize()
                 )
